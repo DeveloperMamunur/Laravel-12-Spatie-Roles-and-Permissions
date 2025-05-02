@@ -14,6 +14,11 @@
                 <flux:input wire:model="email" type="email" label="Email" placeholder="email@example" />
                 <flux:input wire:model="password" type="password" label="Password" placeholder="********" />
                 <flux:input wire:model="password_confirmation" type="password" label="Password Confirmation" placeholder="********" />
+                <flux:checkbox.group wire:model="roles" label="Roles">
+                    @foreach ($allRoles as $role)
+                        <flux:checkbox label="{{ $role->name }}" value="{{ $role->name }}" />
+                    @endforeach
+                </flux:checkbox.group>
 
                 <flux:button type="submit" variant="primary">Update</flux:button>
             </form>
