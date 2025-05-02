@@ -4,6 +4,10 @@ use App\Livewire\Products\ProductCreate;
 use App\Livewire\Products\ProductEdit;
 use App\Livewire\Products\ProductIndex;
 use App\Livewire\Products\ProductShow;
+use App\Livewire\Roles\RoleCreate;
+use App\Livewire\Roles\RoleEdit;
+use App\Livewire\Roles\RoleIndex;
+use App\Livewire\Roles\RoleShow;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -36,6 +40,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('products/{id}/edit', ProductEdit::class)->name('products.edit');
     Route::get('products/{id}', ProductShow::class)->name('products.show');
 
+    // Role routes here
+    Route::get('roles', RoleIndex::class)->name('roles.index');
+    Route::get('roles/create', RoleCreate::class)->name('roles.create');
+    Route::get('roles/{id}/edit', RoleEdit::class)->name('roles.edit');
+    Route::get('roles/{id}', RoleShow::class)->name('roles.show');
+
+    // settings profile routes here
     Route::get('settings/profile', Profile::class)->name('settings.profile');
     Route::get('settings/password', Password::class)->name('settings.password');
     Route::get('settings/appearance', Appearance::class)->name('settings.appearance');
